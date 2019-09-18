@@ -1,2 +1,3 @@
 ﻿  Main.cpp
+d:\grome\documents\github\3d-vector-class\3d vector class\vec3r.h(91): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
   3D Vector Class.vcxproj -> D:\grome\Documents\GitHub\3D-Vector-Class\Debug\3D Vector Class.exe
