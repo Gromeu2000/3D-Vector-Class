@@ -1,3 +1,4 @@
 ﻿  Main.cpp
-d:\grome\documents\github\3d-vector-class\3d vector class\vec3r.h(91): warning C4244: 'return': conversión de 'double' a 'int'; posible pérdida de datos
-  3D Vector Class.vcxproj -> D:\grome\Documents\GitHub\3D-Vector-Class\Debug\3D Vector Class.exe
+c:\users\gerardrv\documents\github\3d vector class\3d vector class\vec3r.h(91): warning C4244: 'return': conversion from 'double' to 'int', possible loss of data
+Main.obj : error LNK2019: unresolved external symbol "public: __thiscall Vec3d::Vec3d(class Vec3d const &)" (??0Vec3d@@QAE@ABV0@@Z) referenced in function "public: class Vec3d __thiscall Vec3d::operator=(class Vec3d const &)" (??4Vec3d@@QAE?AV0@ABV0@@Z)
+C:\Users\gerardrv\Documents\GitHub\3D Vector Class\Debug\3D Vector Class.exe : fatal error LNK1120: 1 unresolved externals

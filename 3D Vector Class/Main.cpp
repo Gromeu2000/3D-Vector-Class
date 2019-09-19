@@ -16,6 +16,10 @@ int main() {
 	b.print();
 	c.print();
 
+	u = v;
+
+	u.print();
+
 	system("pause");
 	return 0;
 }
