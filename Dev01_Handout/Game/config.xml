@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Config file for the game-->
+
+<config>
+
+  <title>My super awesoma game with XML</title>
+  
+</config>
