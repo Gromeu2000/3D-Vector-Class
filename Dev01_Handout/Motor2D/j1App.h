@@ -32,6 +32,26 @@ public:
 	// Called each loop iteration
 	bool Update();
 
+	bool j1App::LoadConfig()
+	{
+		bool ret = true;
+
+		pugi::xml_parse_result result = config_file.load_file("config.xml");
+
+		if (result == NULL)
+		{
+			LOG("Could not load map xml file config.xml. pugi error: %s", result.description());
+			ret = false;
+		}
+		else
+		{
+			config = config_file.child("config");
+			app_config = config.child("app");
+		}
+
+		return ret;
+	}
+
 	// Called before quitting
 	bool CleanUp();
 
@@ -41,6 +61,11 @@ public:
 	// Exposing some properties for reading
 	int GetArgc() const;
 	const char* GetArgv(int index) const;
+
+	const char* j1App::GetTitle() const
+	{
+		return title.GetString();
+	}
 
 private:
 
@@ -80,11 +105,15 @@ private:
 	// a xml_document to store the while config file and
 	// a xml_node to read specific branches of the xml
 
-	pugi::xml_document document;
-	pugi::xml_node node;
+	pugi::xml_document	config_file;
+	pugi::xml_node		config;
+	pugi::xml_node		app_config;
 
 	int					argc;
 	char**				args;
+
+	p2SString			title;
+	p2SString			organization;
 };
 
 extern j1App* App; 

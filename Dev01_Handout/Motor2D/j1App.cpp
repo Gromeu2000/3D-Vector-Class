@@ -61,24 +61,20 @@ bool j1App::Awake()
 	// If everything goes well, load the top tag inside the xml_node property
 	// created in the last TODO
 
-	document.load_file("config.xml");
-	node = document.child("config");
+	bool ret = LoadConfig();
 
-	bool ret = true;
+	// self-config
+	title.create(app_config.child("title").child_value());
+	organization.create(app_config.child("organization").child_value());
 
-	if (ret == true) {
-
+	if (ret == true)
+	{
 		p2List_item<j1Module*>* item;
 		item = modules.start;
 
 		while (item != NULL && ret == true)
 		{
-			// TODO 6: Add a new argument to the Awake method to receive a pointer to an xml node.
-			// If the section with the module name exists in config.xml, fill the pointer with the valid xml_node
-			// that can be used to read all variables for that module.
-			// Send nullptr if the node does not exist in config.xml
-
-			ret = item->data->Awake(node.child(item->data->name.GetString()));
+			ret = item->data->Awake(config.child(item->data->name.GetString()));
 			item = item->next;
 		}
 	}
