@@ -1,0 +1,27 @@
+﻿  j1Main.cpp
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2653: 'pugi': no es un nombre de clase o espacio de nombres
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2061: error de sintaxis: identificador 'xml_node'
+  j1App.cpp
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2653: 'pugi': no es un nombre de clase o espacio de nombres
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2061: error de sintaxis: identificador 'xml_node'
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1app.cpp(81): error C2660: 'j1Module::Awake': la función no acepta 1 argumentos
+  c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): note: vea la declaración de 'j1Module::Awake'
+  j1Audio.cpp
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2653: 'pugi': no es un nombre de clase o espacio de nombres
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2061: error de sintaxis: identificador 'xml_node'
+  j1Input.cpp
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2653: 'pugi': no es un nombre de clase o espacio de nombres
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2061: error de sintaxis: identificador 'xml_node'
+  j1Scene.cpp
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2653: 'pugi': no es un nombre de clase o espacio de nombres
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2061: error de sintaxis: identificador 'xml_node'
+  j1Render.cpp
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2653: 'pugi': no es un nombre de clase o espacio de nombres
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2061: error de sintaxis: identificador 'xml_node'
+  j1Textures.cpp
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2653: 'pugi': no es un nombre de clase o espacio de nombres
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2061: error de sintaxis: identificador 'xml_node'
+  j1Window.cpp
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2653: 'pugi': no es un nombre de clase o espacio de nombres
+c:\users\grome\onedrive\escritorio\dev01_handout\motor2d\j1module.h(26): error C2061: error de sintaxis: identificador 'xml_node'
+  Generando código...
