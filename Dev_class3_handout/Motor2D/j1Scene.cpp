@@ -44,14 +44,12 @@ bool j1Scene::PreUpdate()
 bool j1Scene::Update(float dt)
 {
 	// TODO 1: Request Load / Save on application when pressing L/S
-	App->want_save = false;
-	App->want_load = false;
 
 	if (App->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN)
-		App->want_load = true;
+		App->LoadGame();
 
 	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
-		App->want_save = true;
+		App->SaveGame();
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 		App->render->camera.y -= 1;

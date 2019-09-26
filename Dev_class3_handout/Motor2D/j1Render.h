@@ -47,7 +47,7 @@ public:
 	SDL_Color		background;
 
 	bool Load(pugi::xml_node&);
-	bool Save(pugi::xml_node&);*/
+	bool Save(pugi::xml_node&);
 };
 
 #endif // __j1RENDER_H__

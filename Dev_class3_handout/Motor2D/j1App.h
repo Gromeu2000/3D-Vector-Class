@@ -44,6 +44,9 @@ public:
 	const char* GetTitle() const;
 	const char* GetOrganization() const;
 
+	void LoadGame();
+	void SaveGame();
+
 private:
 
 	// Load config file
@@ -66,8 +69,8 @@ private:
 
 	// TODO 2: Create the functions for Loading / Saving the game state (leave those empty for now)
 
-	bool LoadGame();
-	bool Savegame();
+	bool LoadGameN();
+	bool SavegameN();
 
 public:
 
@@ -79,8 +82,6 @@ public:
 	j1Audio*			audio;
 	j1Scene*			scene;
 
-	bool				want_save;
-	bool				want_load;
 
 private:
 
@@ -95,7 +96,11 @@ private:
 
 	p2SString			title;
 	p2SString			organization;
-	
+
+	bool				want_save;
+	bool				want_load;
+	p2SString			load_game;
+	p2SString			save_game;
 
 };
 

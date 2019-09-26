@@ -1,5 +1,13 @@
 ﻿  j1App.cpp
-c:\users\gerardrv\documents\github\development practice\dev_class3_handout\motor2d\j1app.cpp(157): error C3861: 'Savegame': identifier not found
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(53): error C2065: 'config_file': identificador no declarado
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(68): error C2065: 'app_config': identificador no declarado
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(69): error C2065: 'app_config': identificador no declarado
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(78): error C2065: 'config': identificador no declarado
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(130): error C2065: 'config_file': identificador no declarado
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(139): error C2065: 'config': identificador no declarado
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(139): error C2065: 'config_file': identificador no declarado
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(140): error C2065: 'app_config': identificador no declarado
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(140): error C2065: 'config': identificador no declarado
   j1Audio.cpp
   j1Input.cpp
   j1Main.cpp
@@ -7,4 +15,4 @@ c:\users\gerardrv\documents\github\development practice\dev_class3_handout\motor
   j1Scene.cpp
   j1Textures.cpp
   j1Window.cpp
-  Generating Code...
+  Generando código...

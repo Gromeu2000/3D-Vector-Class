@@ -154,10 +154,10 @@ void j1App::FinishUpdate()
 	// TODO 2: This is a good place to call load / Save functions
 
 	if (want_save == true)
-		Savegame();
+		SavegameN();
 
 	if (want_load == true)
-		LoadGame();
+		LoadGameN();
 
 }
 
@@ -270,29 +270,42 @@ const char* j1App::GetOrganization() const
 }
 
 
+void j1App::LoadGame()
+{
+	want_load = true;
+}
+
+// ---------------------------------------
+void j1App::SaveGame() 
+{
+	want_save = true;
+}
+
 // TODO 5: Fill the application load function
 // Start by opening the file as an xml_document (as with config file)
 
-bool j1App::LoadGame() {
+bool j1App::LoadGameN() {
 
 	bool ret = false;
 
 	pugi::xml_document	load_file;
 	pugi::xml_node load_node;
-	pugi::xml_parse_result result = load_file.load_file("savegame.xml");
+	pugi::xml_parse_result result = load_file.load_file(load_game.GetString());
 
 	if (ret==true) {
 
-		ret = true;
+		load_node = load_file.child("save");
 		p2List_item<j1Module*>* item;
 		item = modules.start;
-		
+		ret = true;
 
 		while (item != NULL && ret == true)
 		{
 			ret = item->data->Load(load_node.child(item->data->name.GetString()));
 			item = item->next;
 		}
+
+		load_file.reset();
 	}
 
 	else {
@@ -301,7 +314,6 @@ bool j1App::LoadGame() {
 	}
 
 	want_load = false;
-
 	return ret;
 }
 
@@ -309,24 +321,31 @@ bool j1App::LoadGame() {
 // Generate a new pugi::xml_document and create a node for each module.
 // Call each module's save function and then save the file using pugi::xml_document::save_file()
 
-bool j1App::Savegame() {
+bool j1App::SavegameN() {
 
 	bool ret = true;
 
 	pugi::xml_document save_document;
 	pugi::xml_node save_node;
 
-	if (ret == true) {
+	save_node = save_document.append_child("save");
 
-		p2List_item<j1Module*>* item;
-		item = modules.start;
+	p2List_item<j1Module*>* item;
+	item = modules.start;
 
-		while (item != NULL && ret == true)
-		{
+	while (item != NULL && ret == true)
+	{
 			ret = item->data->Save(save_node.append_child(item->data->name.GetString()));
 			item = item->next;
-		}
-
 	}
+
+	if (ret == true)
+	{
+		save_document.save_file(save_game.GetString());
+	}
+
+	save_document.reset();
+	want_save = false;
+	return ret;
 	
 }
