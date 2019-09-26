@@ -286,35 +286,32 @@ void j1App::SaveGame()
 
 bool j1App::LoadGameN() {
 
-	bool ret = false;
+	bool ret = true;
 
 	pugi::xml_document	load_file;
 	pugi::xml_node load_node;
-	pugi::xml_parse_result result = load_file.load_file(load_game.GetString());
+	pugi::xml_parse_result result = load_file.load_file("savegame.xml");
 
-	if (ret==true) {
+	if (result == NULL) {
+		LOG("We could not load savegame xml file", result.description());
+	}
+	else {
 
 		load_node = load_file.child("save");
+
 		p2List_item<j1Module*>* item;
 		item = modules.start;
-		ret = true;
 
-		while (item != NULL && ret == true)
+		while (item != NULL && ret==true)
 		{
-			ret = item->data->Load(load_node.child(item->data->name.GetString()));
+			item->data->Load(load_file.child(item->data->name.GetString()));
 			item = item->next;
 		}
 
-		load_file.reset();
-	}
-
-	else {
-
-		LOG("Could not load game state xml file %s. pugi error: %s", title.GetString(), result.description());
 	}
 
 	want_load = false;
-	return ret;
+	return true;
 }
 
 // TODO 7: Fill the application save function
@@ -339,12 +336,8 @@ bool j1App::SavegameN() {
 			item = item->next;
 	}
 
-	if (ret == true)
-	{
-		save_document.save_file(save_game.GetString());
-	}
+	pugi::xml_document save_file();
 
-	save_document.reset();
 	want_save = false;
 	return ret;
 	

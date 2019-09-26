@@ -1,18 +1,3 @@
 ﻿  j1App.cpp
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(53): error C2065: 'config_file': identificador no declarado
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(68): error C2065: 'app_config': identificador no declarado
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(69): error C2065: 'app_config': identificador no declarado
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(78): error C2065: 'config': identificador no declarado
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(130): error C2065: 'config_file': identificador no declarado
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(139): error C2065: 'config': identificador no declarado
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(139): error C2065: 'config_file': identificador no declarado
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(140): error C2065: 'app_config': identificador no declarado
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(140): error C2065: 'config': identificador no declarado
-  j1Audio.cpp
-  j1Input.cpp
-  j1Main.cpp
-  j1Render.cpp
-  j1Scene.cpp
-  j1Textures.cpp
-  j1Window.cpp
-  Generando código...
+d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(339): warning C4930: 'pugi::xml_document save_file(void)': no se ha llamado a la función prototipo (¿se pensó una definición de variable?)
+  Motor2D.vcxproj -> D:\grome\Documents\GitHub\Development\Dev_class3_handout\Debug\Motor 2D.exe
