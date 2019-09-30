@@ -1,3 +1,0 @@
-﻿  j1App.cpp
-d:\grome\documents\github\development\dev_class3_handout\motor2d\j1app.cpp(339): warning C4930: 'pugi::xml_document save_file(void)': no se ha llamado a la función prototipo (¿se pensó una definición de variable?)
-  Motor2D.vcxproj -> D:\grome\Documents\GitHub\Development\Dev_class3_handout\Debug\Motor 2D.exe
