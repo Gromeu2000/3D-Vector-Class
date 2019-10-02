@@ -11,49 +11,50 @@ typedef unsigned int uint;
 // Ignore Terrain Types and Tile Types for now, but we want the image!
 // ----------------------------------------------------
 
-struct tileset {
+struct Tileset {
 
 	uint firstgid = 0u;
-	char name[64];
+	p2SString name;
 	uint tilewidth = 0u;
 	uint tileheight = 0u;
 	uint spacing = 0u;
 	uint margin = 0u;
+	SDL_Texture* tileimage;
+	p2SString file_name;
+	uint file_width;
+	uint file_height;
 };
 
-struct image_source {
-
-	char source[64];
-	uint width = 0u;
-	uint height = 0u;
-};
 
 // TODO 1: Create a struct needed to hold the information to Map node
 
-struct map {
 
-	enum orientation {
 
-		orthogonal,
-		isometric,
-		staggered,
-		hexagonal,
-		or_unknown
-	};
-	enum renderorder {
+enum class render_order
+{
+	render_right_down,
+	render_left_down,
+	render_right_up,
+	render_left_up,
+	render_none
+};
 
-		right_down,
-		right_up,
-		left_down,
-		left_up,
-		ren_unknown
-	};
+enum class map_orientation
+{
+	ori_orthogonal,
+	ori_isometric,
+	ori_none
+};
 
+struct Map {
+
+	map_orientation orientation = map_orientation::ori_none;
+	render_order order = render_order::render_none;
 	uint width = 0u;
 	uint height = 0u;
 	uint tilewidth = 0u;
 	uint tileheight = 0u;
-	uint nextobjectid = 0;
+	uint nextobjectid = 0u;
 };
 
 // ----------------------------------------------------
@@ -79,14 +80,19 @@ public:
 	bool Load(const char* path);
 
 private:
-
+	bool LoadMap(const pugi::xml_node&);
+	bool LoadTileset(const pugi::xml_node&);
+	void LogMap(bool, bool);
 
 public:
 
 	// TODO 1: Add your struct for map info as public for now
+	Map map;
+	p2List<Tileset*> tileset;
 
 private:
 
+	pugi::xml_node		map_node;
 	pugi::xml_document	map_file;
 	p2SString			folder;
 	bool				map_loaded;
