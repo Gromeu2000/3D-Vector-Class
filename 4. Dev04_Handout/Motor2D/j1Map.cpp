@@ -34,6 +34,7 @@ void j1Map::Draw()
 	// TODO 5: Prepare the loop to iterate all the tiles in a layer
 
 	p2List_item<MapLayer_Data*>*item_layer = data.MapLayer.start;
+	p2List_item<TileSet*>*item_tileset = data.tilesets.start;
 
 	MapLayer_Data * l = item_layer->data;
 
@@ -41,7 +42,14 @@ void j1Map::Draw()
 
 		for (uint j = 0; j < l->height; j++) { //columns
 
+			if (l->data[Get(i, j)] != 0)
+			{
+				iPoint mapeator = MapToWorld(i, j);
 
+				SDL_Rect rects = item_tileset->data->GetTileRect(l->data[Get(i, j)]);
+
+				App->render->Blit(item_tileset->data->texture, mapeator.x, mapeator.y, &rects);
+			}
 		}
 	}
 
@@ -50,6 +58,26 @@ void j1Map::Draw()
 
 }
 
+iPoint j1Map::MapToWorld(int x, int y) const
+{
+	iPoint ret;
+
+	ret.x = x * data.tile_width;
+	ret.y = y * data.tile_height;
+
+	return ret;
+}
+
+SDL_Rect TileSet::GetTileRect(int id) const
+{
+	int relative_id = id - firstgid;
+	SDL_Rect rect;
+	rect.w = tile_width;
+	rect.h = tile_height;
+	rect.x = margin + ((rect.w + spacing) * (relative_id % num_tiles_width));
+	rect.y = margin + ((rect.h + spacing) * (relative_id / num_tiles_width));
+	return rect;
+}
 
 // Called before quitting
 bool j1Map::CleanUp()

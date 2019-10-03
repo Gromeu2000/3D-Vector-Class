@@ -26,6 +26,8 @@ struct TileSet
 {
 	// TODO 7: Create a method that receives a tile id and returns it's Rect
 
+	SDL_Rect GetTileRect(int id) const;
+
 	p2SString			name;
 	int					firstgid;
 	int					margin;
@@ -86,6 +88,7 @@ public:
 	bool Load(const char* path);
 
 	// TODO 8: Create a method that translates x,y coordinates from map positions to world positions
+	iPoint MapToWorld(int x, int y) const;
 
 private:
 
@@ -100,6 +103,11 @@ private:
 public:
 
 	MapData data;
+
+	inline uint Get(int x, int y) const
+	{
+		return (y * (data.width) + x);
+	}
 
 private:
 
