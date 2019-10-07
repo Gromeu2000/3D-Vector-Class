@@ -5,11 +5,13 @@
     <title>Game Development Testbed</title>
     <organization>UPC</organization>
   </app>
-	
-  <renderer>
-    <vsync value="false"/>
-  </renderer>
 
+  <renderer>
+    <vsync value="true"/>
+  </renderer>
+  <audio>
+    <defaultvolume volume="128"/>
+  </audio>
   <window>
     <resolution width="1024" height="768" scale="1"/>
     <fullscreen value="false"/>
@@ -17,5 +19,7 @@
     <resizable value="false"/>
     <fullscreen_window value="false"/>
   </window>
+
+
 
 </config>

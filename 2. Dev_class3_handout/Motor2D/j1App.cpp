@@ -153,11 +153,29 @@ void j1App::FinishUpdate()
 {
 	// TODO 2: This is a good place to call load / Save functions
 
-	if (want_save == true)
-		SavegameN();
+	if (save_request)
+	{
+		SaveN();
+		save_request = false;
+	}
+	if (load_request)
+	{
+		LoadN();
+		load_request = false;
+	}
 
-	if (want_load == true)
-		LoadGameN();
+	if (volumeup)
+	{
+		App->audio->Musicup();
+		volumeup = false;
+	}
+
+	if (volumedown)
+	{
+		App->audio->Musicdown();
+		volumedown = false;
+	}
+
 
 }
 
@@ -269,80 +287,40 @@ const char* j1App::GetOrganization() const
 	return organization.GetString();
 }
 
-
-void j1App::LoadGame()
+void j1App::SaveN()
 {
-	want_load = true;
+	p2List_item<j1Module*>* item;
+	item = modules.start;
+
+	pugi::xml_document data;
+	pugi::xml_node save_node = data.append_child("save");
+
+	while (item != NULL)
+	{
+		item->data->Save(save_node.append_child(item->data->name.GetString()));
+		item = item->next;
+	}
+	data.save_file("savegame.xml");
 }
 
-// ---------------------------------------
-void j1App::SaveGame() 
+void j1App::LoadN()
 {
-	want_save = true;
+	pugi::xml_parse_result result = savegame_file.load_file("savegame.xml");
+	//LOG("Could not load map xml file savegame.xml. pugi error: %s", result.description());
+
+	savegame = savegame_file.child("save");
+	p2List_item<j1Module*>* item;
+	item = modules.start;
+
+	while (item != NULL)
+	{
+		item->data->Load(savegame.child(item->data->name.GetString()));
+		item = item->next;
+	}
 }
+
 
 // TODO 5: Fill the application load function
 // Start by opening the file as an xml_document (as with config file)
 
-bool j1App::LoadGameN() {
 
-	bool ret = true;
-
-	pugi::xml_document	load_file;
-	pugi::xml_node load_node;
-	pugi::xml_parse_result result = load_file.load_file("savegame.xml");
-
-	if (result == NULL) {
-		LOG("We could not load savegame xml file", result.description());
-	}
-	else {
-
-		load_node = load_file.child("save");
-
-		p2List_item<j1Module*>* item;
-		item = modules.start;
-
-		while (item != NULL && ret==true)
-		{
-			item->data->Load(load_file.child(item->data->name.GetString()));
-			item = item->next;
-		}
-
-	}
-
-	want_load = false;
-	return true;
-}
-
-// TODO 7: Fill the application save function
-// Generate a new pugi::xml_document and create a node for each module.
-// Call each module's save function and then save the file using pugi::xml_document::save_file()
-
-bool j1App::SavegameN() {
-
-	bool ret = true;
-
-	pugi::xml_document save_document;
-	pugi::xml_node save_node;
-
-	save_node = save_document.append_child("save");
-
-	p2List_item<j1Module*>* item;
-	item = modules.start;
-
-	
-	while (item != NULL && ret == true)
-	{
-			ret = item->data->Save(save_node.append_child(item->data->name.GetString()));
-			item = item->next;
-	}
-	if (ret == true)
-	{
-		save_document.save_file(save_game.GetString());
-	}
-
-	pugi::xml_document save_file();
-	want_save = false;
-	return ret;
-	
-}

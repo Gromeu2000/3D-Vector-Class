@@ -12,7 +12,12 @@ class j1Audio : public j1Module
 {
 public:
 
+	int volume;
+
 	j1Audio();
+
+	/*void Load(pugi::xml_node&);
+	void Save(pugi::xml_node&);*/
 
 	// Destructor
 	virtual ~j1Audio();
@@ -31,6 +36,9 @@ public:
 
 	// Play a previously loaded WAV
 	bool PlayFx(unsigned int fx, int repeat = 0);
+
+	void Musicup();
+	void Musicdown();
 
 private:
 

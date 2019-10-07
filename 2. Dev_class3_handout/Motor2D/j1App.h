@@ -44,8 +44,8 @@ public:
 	const char* GetTitle() const;
 	const char* GetOrganization() const;
 
-	void LoadGame();
-	void SaveGame();
+	void SaveN();
+	void LoadN();
 
 private:
 
@@ -69,8 +69,6 @@ private:
 
 	// TODO 2: Create the functions for Loading / Saving the game state (leave those empty for now)
 
-	bool LoadGameN();
-	bool SavegameN();
 
 public:
 
@@ -81,7 +79,10 @@ public:
 	j1Textures*			tex;
 	j1Audio*			audio;
 	j1Scene*			scene;
-
+	bool				save_request;
+	bool				load_request;
+	bool				volumeup;
+	bool				volumedown;
 
 private:
 
@@ -89,7 +90,9 @@ private:
 	uint				frames;
 	float				dt;
 	pugi::xml_document	config_file;
+	pugi::xml_document	savegame_file;
 	pugi::xml_node		config;
+	pugi::xml_node		savegame;
 	pugi::xml_node		app_config;
 	int					argc;
 	char**				args;
@@ -97,10 +100,6 @@ private:
 	p2SString			title;
 	p2SString			organization;
 
-	bool				want_save;
-	bool				want_load;
-	p2SString			load_game;
-	p2SString			save_game;
 
 };
 
