@@ -1,2 +1,13 @@
-﻿  j1Map.cpp
-  Motor2D.vcxproj -> C:\Users\gerardrv\Documents\GitHub\Development Practice\4. Dev04_Handout\Debug\Motor 2D.exe
+﻿  j1Main.cpp
+  j1App.cpp
+  j1Audio.cpp
+  j1Input.cpp
+  j1Map.cpp
+  j1Scene.cpp
+  p2Log.cpp
+  j1Render.cpp
+  j1Textures.cpp
+  j1Window.cpp
+  pugixml.cpp
+  Generando código...
+  Motor2D.vcxproj -> D:\grome\Documents\GitHub\Development\4. Dev04_Handout\Debug\Motor 2D.exe

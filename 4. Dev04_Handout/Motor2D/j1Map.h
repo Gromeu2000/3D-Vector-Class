@@ -9,15 +9,21 @@
 // TODO 1: Create a struct for the map layer
 // ----------------------------------------------------
 
-struct MapLayer_Data
+struct MapLayer
 {
 	p2SString name;
-	uint width = 0u;
-	uint height = 0u;
-	uint* data = nullptr;
+	uint width;
+	uint height;
+	uint *gid = nullptr;
+	float speed_x;
+	// TODO 6: Short function to get the value of x,y
+	inline uint Get(int x, int y) const {
+
+		return gid[x + (y*width)];
+	}
 };
 
-	// TODO 6: Short function to get the value of x,y
+	
 
 
 
@@ -26,21 +32,21 @@ struct TileSet
 {
 	// TODO 7: Create a method that receives a tile id and returns it's Rect
 
-	SDL_Rect GetTileRect(int id) const;
+	SDL_Rect GetRect(int id);
 
-	p2SString			name;
-	int					firstgid;
-	int					margin;
-	int					spacing;
-	int					tile_width;
-	int					tile_height;
-	SDL_Texture*		texture;
-	int					tex_width;
-	int					tex_height;
-	int					num_tiles_width;
-	int					num_tiles_height;
-	int					offset_x;
-	int					offset_y;
+	p2SString name;
+	int	firstgid;
+	int	margin;
+	int	spacing;
+	int	tile_width;
+	int	tile_height;
+	SDL_Texture* texture;
+	int	tex_width;
+	int	tex_height;
+	int	num_tiles_width;
+	int	num_tiles_height;
+	int	offset_x;
+	int	offset_y;
 };
 
 enum MapTypes
@@ -59,10 +65,10 @@ struct MapData
 	int					tile_height;
 	SDL_Color			background_color;
 	MapTypes			type;
-	p2List<TileSet*>	tilesets;
 	// TODO 2: Add a list/array of layers to the map!
 
-	p2List<MapLayer_Data*> MapLayer;
+	p2List<TileSet*>	tilesets;
+	p2List<MapLayer*>	layers;
 };
 
 // ----------------------------------------------------
@@ -97,17 +103,14 @@ private:
 	bool LoadTilesetImage(pugi::xml_node& tileset_node, TileSet* set);
 	// TODO 3: Create a method that loads a single laye
 	// bool LoadLayer(pugi::xml_node& node, MapLayer* layer);
-	bool LoadLayer(pugi::xml_node& node, MapLayer_Data* layer);
+	bool LoadLayer(pugi::xml_node& node, MapLayer* layer);
+	TileSet* GetTileset(int id);
+	iPoint WorldPos(int x, int y);
 
 
 public:
 
 	MapData data;
-
-	inline uint Get(int x, int y) const
-	{
-		return (y * (data.width) + x);
-	}
 
 private:
 
