@@ -40,14 +40,12 @@ void j1Map::Draw()
 
 	for (uint i = 0; i < l->height; i++) { // rows
 
-		for (uint j = 0; j < l->height; j++) { //columns
+		for (uint j = 0; j < l->width; j++) { //columns
 
 			if (l->data[Get(i, j)] != 0)
 			{
 				iPoint mapeator = MapToWorld(i, j);
-
 				SDL_Rect rects = item_tileset->data->GetTileRect(l->data[Get(i, j)]);
-
 				App->render->Blit(item_tileset->data->texture, mapeator.x, mapeator.y, &rects);
 			}
 		}
