@@ -12,6 +12,27 @@
 // ----------------------------------------------------
 struct Properties
 {
+	struct Property
+	{
+		p2SString name;
+		int Value;
+	};
+
+	~Properties()
+	{
+		p2List_item<Property*>* pItem;
+		pItem = PropertyList.start;
+
+		while (pItem != NULL)
+		{
+			RELEASE(pItem->data);
+			pItem = pItem->next;
+		}
+
+		PropertyList.clear();
+	}
+
+	p2List<Property*> PropertyList;
 };
 
 // ----------------------------------------------------

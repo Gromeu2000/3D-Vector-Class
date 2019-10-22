@@ -416,6 +416,14 @@ bool j1Map::LoadProperties(pugi::xml_node& node, Properties& properties)
 
 	// TODO 6: Fill in the method to fill the custom properties from 
 	// an xml_node
+	node.first_child() = node.child("layer").child("Properties");
+
+	int j = properties.PropertyList.count();
+	for (int i = 0; i < j; ++i)
+	{
+		properties.PropertyList[i]->name = node.attribute("Name").as_string();
+		properties.PropertyList[i]->Value = node.attribute("Value").as_int();
+	}
 
 	return ret;
 }
