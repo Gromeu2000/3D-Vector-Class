@@ -1,0 +1,12 @@
+﻿  j1Map.cpp
+c:\users\gerardrv\downloads\dev07_handout\motor2d\j1map.cpp(88): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+c:\users\gerardrv\downloads\dev07_handout\motor2d\j1map.cpp(89): warning C4244: '=': conversion from 'float' to 'TYPE', possible loss of data
+          with
+          [
+              TYPE=int
+          ]
+  Motor2D.vcxproj -> C:\Users\gerardrv\Downloads\Dev07_Handout\Debug\Development - Class 7.exe
