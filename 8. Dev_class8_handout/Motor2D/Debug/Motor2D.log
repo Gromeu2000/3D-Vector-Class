@@ -1,0 +1,13 @@
+﻿  j1Map.cpp
+c:\users\gerardrv\documents\github\3d-vector-class\8. dev_class8_handout\motor2d\j1map.cpp(87): warning C4018: '<': no coinciden signed/unsigned
+c:\users\gerardrv\documents\github\3d-vector-class\8. dev_class8_handout\motor2d\j1map.cpp(268): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+c:\users\gerardrv\documents\github\3d-vector-class\8. dev_class8_handout\motor2d\j1map.cpp(269): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  Motor2D.vcxproj -> C:\Users\gerardrv\Documents\GitHub\3D-Vector-Class\8. Dev_class8_handout\Debug\Dev Class7.8 Handout.exe
