@@ -1,0 +1,23 @@
+﻿  j1Pathfinding.cpp
+c:\users\gerardrv\documents\github\3d-vector-class\9. dev_class9_handout\motor2d\p2point.h(114): warning C4244: 'argumento': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  c:\users\gerardrv\documents\github\3d-vector-class\9. dev_class9_handout\motor2d\p2point.h(110): note: durante la compilación de la función miembro de plantilla clase de 'TYPE p2Point<TYPE>::DistanceTo(const p2Point<TYPE> &) const'
+          with
+          [
+              TYPE=int
+          ]
+  c:\users\gerardrv\documents\github\3d-vector-class\9. dev_class9_handout\motor2d\j1pathfinding.cpp(160): note: vea la referencia a la creación de instancias de plantilla de función 'TYPE p2Point<TYPE>::DistanceTo(const p2Point<TYPE> &) const' que se está compilando
+          with
+          [
+              TYPE=int
+          ]
+  c:\users\gerardrv\documents\github\3d-vector-class\9. dev_class9_handout\motor2d\j1pathfinding.h(81): note: vea la referencia a la creación de instancias de plantilla clase de 'p2Point<int>' que se está compilando
+c:\users\gerardrv\documents\github\3d-vector-class\9. dev_class9_handout\motor2d\p2point.h(114): warning C4244: 'return': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  Motor2D.vcxproj -> C:\Users\gerardrv\Documents\GitHub\3D-Vector-Class\9. Dev_class9_handout\Debug\Development - Class 8 Handout.exe
