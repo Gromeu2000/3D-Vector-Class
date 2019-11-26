@@ -1,0 +1,13 @@
+﻿  j1App.cpp
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1app.cpp(213): warning C4477: 'sprintf_s' : la cadena de formato '%lu' requiere un argumento de tipo 'unsigned long', pero el argumento variádico 6 tiene el tipo 'uint64'
+  c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1app.cpp(213): note: considere el uso de ' %llu' en la cadena de formato
+  c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1app.cpp(213): note: considere el uso de ' %I64u' en la cadena de formato
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1app.cpp(217): warning C4018: '<': no coinciden signed/unsigned
+  j1Gui.cpp
+  j1Scene.cpp
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1scene.cpp(103): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1scene.cpp(106): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1scene.cpp(109): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1scene.cpp(112): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+  Generando código...
+  Motor2D.vcxproj -> C:\Users\gerardrv\Documents\GitHub\3D-Vector-Class\12. Dev_class17_handout\Debug\Development - Class 17 Handout.exe
