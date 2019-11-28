@@ -1,5 +1,6 @@
 #include "j1Gui_Button.h"
 #include "j1App.h"
+#include "j1Fonts.h"
 
 Gui_Button::Gui_Button(Element_type type, iPoint position, SDL_Rect rect, SDL_Texture* tex) : Gui_Elements(type, position, rect, tex)
 {
@@ -44,6 +45,7 @@ bool Gui_Button::PreUpdate()
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN && hovering && !clicking_right)
 	{
 		clicking_left = true;
+		
 	}
 	if (App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_UP && hovering)
 	{
@@ -65,7 +67,7 @@ bool Gui_Button::PreUpdate()
 bool Gui_Button::PostUpdate()
 {
 
-	if (clicking_right == true || clicking_left == true)
+	if (clicking_right == true || clicking_left == true )
 	{
 		App->render->Blit(texture, pos.x, pos.y, &clicking_rect, 0);
 	}

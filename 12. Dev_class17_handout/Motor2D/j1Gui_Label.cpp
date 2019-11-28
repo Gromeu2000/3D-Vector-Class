@@ -9,9 +9,9 @@ Gui_Label::Gui_Label(Element_type type, iPoint position, SDL_Rect rect, SDL_Text
 	texture = tex;
 	Rect = rect;
 
-	hovering_tex = App->font->Print("Mouse is hovering", { 255,255,255,255 }, App->font->default);
-	right_click = App->font->Print("Right click", { 255,255,255,255 }, App->font->default);
-	left_click = App->font->Print("Left click", { 255,255,255,255 }, App->font->default);
+	hovering_tex = App->font->Print("Mouse is hovering", { 255,0,128,255 }, App->font->default);
+	right_click = App->font->Print("Right click", { 255,255,0,255 }, App->font->default);
+	left_click = App->font->Print("Left click", { 76,145,65,255 }, App->font->default);
 }
 
 Gui_Label::~Gui_Label() {}
@@ -66,19 +66,19 @@ bool Gui_Label::PostUpdate() {
 
 	if (clicking_right == true)
 	{
-		App->render->Blit(right_click, pos.x, pos.y, &Rect, 0);
+		App->render->Blit(right_click, pos.x, pos.y, NULL, 0);
 	}
 	else if (clicking_left == true)
 	{
-		App->render->Blit(left_click, pos.x, pos.y, &Rect, 0);
+		App->render->Blit(left_click, pos.x, pos.y, NULL, 0);
 	}
 	else if (hovering == true)
 	{
-		App->render->Blit(hovering_tex, pos.x, pos.y, &Rect, 0);
+		App->render->Blit(hovering_tex, pos.x, pos.y, NULL, 0);
 	}
 	else
 	{
-		App->render->Blit(texture, pos.x, pos.y, &Rect, 0);
+		App->render->Blit(texture, pos.x, pos.y, NULL, 0);
 	}
 
 	return true;

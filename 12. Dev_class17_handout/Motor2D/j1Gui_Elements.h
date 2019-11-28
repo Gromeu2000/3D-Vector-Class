@@ -36,7 +36,7 @@ public:
 	SDL_Texture* texture = nullptr;
 	SDL_Rect Rect;
 
-	bool hovering, clicking_left, clicking_right;
+	bool hovering, clicking_left, clicking_right, clicking_left_2;
 
 };
 

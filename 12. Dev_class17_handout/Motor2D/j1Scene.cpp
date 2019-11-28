@@ -51,8 +51,8 @@ bool j1Scene::Start()
 
 	App->gui->Create_Element(Element_type::BUTTON, { 400, 300 }, { 642,169,229,69 }, App->gui->GetAtlas());
 
-	SDL_Texture* font = App->font->Print("Hello World!", { 255, 255, 255, 255 }, App->font->default);
-	App->gui->Create_Element(Element_type::LABEL, { 480, 180 }, { 0,0,75,15 }, font);
+	SDL_Texture* font = App->font->Print("Hello World!", { 34, 183, 255, 255 }, App->font->default);
+	App->gui->Create_Element(Element_type::LABEL, { 480, 175 }, { 0,0,105,20 }, font);
 
 	return true;
 }

@@ -25,6 +25,7 @@ public:
 	SDL_Texture * hovering_tex;
 	SDL_Texture * left_click;
 	SDL_Texture * right_click;
+	SDL_Texture * clicking_text_appear;
 
 };
 

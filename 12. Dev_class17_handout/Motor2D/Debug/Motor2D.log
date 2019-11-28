@@ -1,2 +1,6 @@
-﻿  j1Gui.cpp
+﻿  j1Scene.cpp
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1scene.cpp(103): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1scene.cpp(106): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1scene.cpp(109): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\gerardrv\documents\github\3d-vector-class\12. dev_class17_handout\motor2d\j1scene.cpp(112): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
   Motor2D.vcxproj -> C:\Users\gerardrv\Documents\GitHub\3D-Vector-Class\12. Dev_class17_handout\Debug\Development - Class 17 Handout.exe
