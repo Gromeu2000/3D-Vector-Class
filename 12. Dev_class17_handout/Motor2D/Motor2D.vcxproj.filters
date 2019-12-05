@@ -49,10 +49,6 @@
     <ClCompile Include="j1Gui.cpp">
       <Filter>Desenvolupament  ========\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="j1Gui_Elements.cpp" />
-    <ClCompile Include="j1Gui_Button.cpp" />
-    <ClCompile Include="j1Gui_Image.cpp" />
-    <ClCompile Include="j1Gui_Label.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="j1Window.h">
@@ -121,10 +117,6 @@
     <ClInclude Include="j1Gui.h">
       <Filter>Desenvolupament  ========\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="j1Gui_Elements.h" />
-    <ClInclude Include="j1Gui_Button.h" />
-    <ClInclude Include="j1Gui_Image.h" />
-    <ClInclude Include="j1Gui_Label.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Programacio 2 ===========">

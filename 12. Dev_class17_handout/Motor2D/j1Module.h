@@ -9,6 +9,10 @@
 #include "p2SString.h"
 #include "PugiXml\src\pugixml.hpp"
 
+class Gui_Element;
+
+enum Gui_Events;
+
 class j1App;
 
 class j1Module
@@ -70,6 +74,11 @@ public:
 	virtual bool Save(pugi::xml_node&) const
 	{
 		return true;
+	}
+
+	virtual void ReceiveEvent(Gui_Element* el, Gui_Events ev)
+	{
+
 	}
 
 public:

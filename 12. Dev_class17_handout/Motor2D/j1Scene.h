@@ -4,8 +4,9 @@
 #include "j1Module.h"
 
 struct SDL_Texture;
-class GuiImage;
-class GuiText;
+class Gui_Image;
+class Gui_Label;
+class Gui_InputBox;
 
 class j1Scene : public j1Module
 {
@@ -34,10 +35,19 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	//Receive GUI_Event
+	void ReceiveEvent(Gui_Element* el, Gui_Events ev);
+
 private:
 	SDL_Texture* debug_tex;
-	GuiImage* banner;
-	GuiText* text;
+	Gui_Image* banner;
+	Gui_Label* text;
+	Gui_Image* window;
+
+	Gui_Image* banner2;
+	Gui_Label* text2;
+
+	Gui_InputBox* box;
 };
 
 #endif // __j1SCENE_H__

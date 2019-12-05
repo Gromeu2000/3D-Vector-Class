@@ -64,6 +64,10 @@ public:
 	// Check if a certain window event happened
 	bool GetWindowEvent(int code);
 
+	void StartInput(p2SString edit_input, int pos);
+	void StopInput();
+	p2SString GetInput(int& cursor);
+
 	// Get mouse / axis position
 	void GetMousePosition(int &x, int &y);
 	void GetMouseMotion(int& x, int& y);
@@ -76,6 +80,10 @@ private:
 	int			mouse_motion_y;
 	int			mouse_x;
 	int			mouse_y;
+
+	bool		enable_input;
+	p2SString   input_text;
+	int			cursor_pos;
 };
 
 #endif // __j1INPUT_H__

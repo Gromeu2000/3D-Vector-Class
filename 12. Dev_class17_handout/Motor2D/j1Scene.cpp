@@ -9,8 +9,8 @@
 #include "j1Map.h"
 #include "j1PathFinding.h"
 #include "j1Gui.h"
-#include "j1Scene.h"
 #include "j1Fonts.h"
+#include "j1Scene.h"
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -45,14 +45,44 @@ bool j1Scene::Start()
 
 	debug_tex = App->tex->Load("maps/path2.png");
 
-	// TODO 3: Create the banner (rect {485, 829, 328, 103}) and the text "Hello World"
+	// TODO 3: Create the image (rect {485, 829, 328, 103}) and the text "Hello World" as UI elements
+	//Gui start
+	//---------------------
+	window = App->gui->CreateGuiImage({ 0, 512, 483, 512 }, { 100, 100 });
+	window->interactable = true;
+	window->draggable = true;
 
-	App->gui->Create_Element(Element_type::IMAGE, { 350, 200 }, { 485, 829, 328, 103 }, App->gui->GetAtlas());
+	banner = App->gui->CreateGuiImage({ 642, 169, 229, 69 }, { 0, 0 }, window);
+	banner->interactable = true;
+	banner->focusable = true;
+	banner->draggable = true;
 
-	App->gui->Create_Element(Element_type::BUTTON, { 400, 300 }, { 642,169,229,69 }, App->gui->GetAtlas());
+	text = App->gui->CreateGuiLabel("Play", App->font->default, { 0, 0 }, banner);
+	text->Center();
 
-	SDL_Texture* font = App->font->Print("Hello World!", { 255, 255, 255, 255 }, App->font->default);
-	App->gui->Create_Element(Element_type::LABEL, { 480, 180 }, { 0,0,75,15 }, font);
+	banner2 = App->gui->CreateGuiImage({ 642, 169, 229, 69 }, { 0, 300 }, window);
+	banner2->interactable = true;
+	banner2->focusable = true;
+	banner2->draggable = true;
+
+	text2 = App->gui->CreateGuiLabel("Erase", App->font->default, { 0, 0 }, banner2);
+	text2->Center();
+
+	box = App->gui->CreateGuiInputBox("Insert your name", App->font->default, { 0, 100 }, 315, { 488, 569, 344, 61 }, { 5, 5 }, window);
+	box->interactable = true;
+	box->focusable = true;
+	box->draggable = true;
+
+
+	banner->Center();
+	banner2->Center(true, false);
+	window->Center();
+	box->Center(true, false);
+
+
+
+
+	//---------------------
 
 	return true;
 }
@@ -90,26 +120,17 @@ bool j1Scene::PreUpdate()
 // Called each loop iteration
 bool j1Scene::Update(float dt)
 {
-	// Gui ---
-
-	// -------
 	if (App->input->GetKey(SDL_SCANCODE_L) == KEY_DOWN)
+	{
 		App->LoadGame("save_game.xml");
+		window->SwitchActiveSiblings();
+	}
 
 	if (App->input->GetKey(SDL_SCANCODE_S) == KEY_DOWN)
+	{
 		App->SaveGame("save_game.xml");
-
-	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
-		App->render->camera.y += floor(200.0f * dt);
-
-	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
-		App->render->camera.y -= floor(200.0f * dt);
-
-	if (App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
-		App->render->camera.x += floor(200.0f * dt);
-
-	if (App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
-		App->render->camera.x -= floor(200.0f * dt);
+		banner->SwitchActive();
+	}
 
 	App->map->Draw();
 
@@ -141,6 +162,13 @@ bool j1Scene::Update(float dt)
 		App->render->Blit(debug_tex, pos.x, pos.y);
 	}
 
+	// Gui Update---
+	//window->Update();
+	//banner->Update();
+	//text->Update();
+
+	// -------
+
 	return true;
 }
 
@@ -161,4 +189,60 @@ bool j1Scene::CleanUp()
 	LOG("Freeing scene");
 
 	return true;
+}
+
+void j1Scene::ReceiveEvent(Gui_Element* el, Gui_Events ev)
+{
+	if (el->active)
+	{
+		if (el == banner)
+		{
+			switch (ev)
+			{
+			case MOUSE_CLICK_DOWN:
+				banner->section = { 411, 169, 229, 69 };
+				banner->SetRectWH(229, 69);
+				break;
+			case MOUSE_CLICK_UP:
+				banner->section = { 0, 113, 229, 69 };
+				banner->SetRectWH(229, 69);
+				break;
+			case FOCUS_ON:
+			case MOUSE_ENTER:
+				banner->section = { 0, 113, 229, 69 };
+				banner->SetRectWH(229, 69);
+				break;
+			case FOCUS_OFF:
+			case MOUSE_LEAVE:
+				banner->section = { 642, 169, 229, 69 };
+				banner->SetRectWH(229, 69);
+				break;
+			}
+		}
+
+		else if (el == banner2)
+		{
+			switch (ev)
+			{
+			case MOUSE_CLICK_DOWN:
+				banner2->section = { 411, 169, 229, 69 };
+				banner2->SetRectWH(229, 69);
+				break;
+			case MOUSE_CLICK_UP:
+				banner2->section = { 0, 113, 229, 69 };
+				banner2->SetRectWH(229, 69);
+				break;
+			case FOCUS_ON:
+			case MOUSE_ENTER:
+				banner2->section = { 0, 113, 229, 69 };
+				banner2->SetRectWH(229, 69);
+				break;
+			case FOCUS_OFF:
+			case MOUSE_LEAVE:
+				banner2->section = { 642, 169, 229, 69 };
+				banner2->SetRectWH(229, 69);
+				break;
+			}
+		}
+	}
 }
