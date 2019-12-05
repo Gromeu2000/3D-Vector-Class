@@ -80,9 +80,8 @@ bool j1Scene::Start()
 	box->Center(true, false);
 
 
-
-
-	//---------------------
+	SDL_Texture* font = App->font->Print("Hello World!", { 34, 183, 255, 255 }, App->font->default);
+	App->gui->Create_Element(Element_type::LABEL, { 480, 175 }, { 0,0,105,20 }, font);
 
 	return true;
 }
