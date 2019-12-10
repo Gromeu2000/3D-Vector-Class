@@ -41,6 +41,8 @@ public:
 private:
 	SDL_Texture* debug_tex;
 	Gui_Image* banner;
+	Gui_Image* bar;
+	Gui_Image* thumb;
 	Gui_Label* text;
 	Gui_Image* window;
 

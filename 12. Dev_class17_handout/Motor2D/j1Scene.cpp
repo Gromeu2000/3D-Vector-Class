@@ -52,6 +52,13 @@ bool j1Scene::Start()
 	window->interactable = true;
 	window->draggable = true;
 
+	bar = App->gui->CreateGuiImage({ 972,785,10,156 }, { 685,350 });
+
+	thumb = App->gui->CreateGuiImage({ 977, 432, 20, 20 }, { 680,350 });
+	thumb->focusable = true;
+	thumb->interactable = true;
+	thumb->draggable_y = true;
+
 	banner = App->gui->CreateGuiImage({ 642, 169, 229, 69 }, { 0, 0 }, window);
 	banner->interactable = true;
 	banner->focusable = true;
@@ -81,7 +88,6 @@ bool j1Scene::Start()
 
 
 	SDL_Texture* font = App->font->Print("Hello World!", { 34, 183, 255, 255 }, App->font->default);
-	App->gui->Create_Element(Element_type::LABEL, { 480, 175 }, { 0,0,105,20 }, font);
 
 	return true;
 }

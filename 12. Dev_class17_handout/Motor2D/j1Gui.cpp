@@ -296,6 +296,11 @@ void Gui_Element::SetLocalPos(int x, int y)
 	rect.y = y;
 }
 
+void Gui_Element::SetLocalPos_y(int y)
+{
+	rect.y = y;
+}
+
 bool Gui_Element::CheckEvent(Gui_Element* hover, Gui_Element* focus)
 {
 	bool inside = (hover == this);
@@ -345,6 +350,14 @@ bool Gui_Element::CheckEvent(Gui_Element* hover, Gui_Element* focus)
 				int mouse_motionY = 0;
 				App->input->GetMouseMotion(mouse_motionX, mouse_motionY);
 				SetLocalPos(p.x + mouse_motionX, p.y + mouse_motionY);
+			}
+
+			if (draggable_y && clicked && App->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_REPEAT)
+			{
+				p2Point<int> p = GetLocalPos();
+				int mouse_motionY = 0;
+				App->input->GetMouseMotion_y(mouse_motionY);
+				SetLocalPos_y(p.y + mouse_motionY);
 			}
 		}
 

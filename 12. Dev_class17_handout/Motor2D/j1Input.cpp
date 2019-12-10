@@ -200,6 +200,11 @@ void j1Input::GetMouseMotion(int& x, int& y)
 	y = mouse_motion_y;
 }
 
+void j1Input::GetMouseMotion_y(int& y)
+{
+	y = mouse_motion_y;
+}
+
 void j1Input::StartInput(p2SString edit_input, int pos)
 {
 	SDL_StartTextInput();

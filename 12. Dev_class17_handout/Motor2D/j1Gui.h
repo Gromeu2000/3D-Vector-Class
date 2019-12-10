@@ -41,6 +41,7 @@ public:
 	p2Point<int> GetScreenPos();
 	p2Point<int> GetLocalPos();
 	void SetLocalPos(int x, int y);
+	void SetLocalPos_y(int y);
 
 	void Center(bool x = true, bool y = true);
 
@@ -62,6 +63,7 @@ public:
 	bool				mouseInside;
 	bool				clicked;
 	bool				draggable;
+	bool				draggable_y;
 	bool				focusable;
 	bool				focusIn;
 	bool				interactable;
